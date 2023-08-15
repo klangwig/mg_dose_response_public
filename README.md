@@ -6,6 +6,6 @@ data for Hawley et al. dose-response (priming and secondary) experiment
 - deviance_params_21JUL2023.csv contains the estimated parameters for the groups. This file is just used for grabbing the param estimates for the kate_MG_boostrap_resids.R
 
 # code
--kate_define_functions.R - this is all the dose-response models and the likelihood (deviance) functions for fitting
+- kate_define_functions.R - this is all the dose-response models and the likelihood (deviance) functions for fitting
 - kate_MG_bootstrap_resids.R: this file is used to obtain the 95% CI of the dose-response parameters. It needs to be better organized so the code doesn't rely on functions in a different file (or write an actual package)
 
