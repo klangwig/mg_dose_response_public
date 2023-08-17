@@ -653,8 +653,6 @@ p11fix <- ggplot(outhomfix, aes(x=time)) +
   geom_line(aes(y = C), color = "#7E1717",size = 0.8) +
   geom_line(aes(y = D), color="#7E1717", linetype="twodash",size = 0.8) +
   labs(title="No prior exposure",y="Cumulative",x="",legend ="")+
-  #ylab("Cumulative")+
-  #xlab("")+
   ylim(0,100)+
   theme_bw() +
   theme(axis.title=element_text(size=14),
@@ -671,8 +669,6 @@ p12fix = ggplot(data=out.comb750fix, aes(x=time)) +
   geom_line(aes( y=D, colour = exposure.group), linetype="twodash",size = 0.8) +
   scale_color_manual(values = c("#068DA9", "#7E1717"))+
   labs(title="Low dose (750)",y="",x="",legend ="")+
-  #ylab("")+
-  #xlab("")+
   ylim(0,100)+
   theme_bw() +
   theme(axis.title=element_text(size=14),
@@ -687,8 +683,6 @@ p13fix = ggplot(data=out.comb30000fix, aes(x=time)) +
   geom_line(aes( y=D, colour = exposure.group), linetype="twodash",size = 0.8) +
   scale_color_manual(values = c("#068DA9", "#7E1717"))+
   labs(title="High dose (30000)",y="",x="",legend ="")+
-  #ylab("")+
-  #xlab("")+
   ylim(0,100)+
   theme_bw() +
   theme(axis.title=element_text(size=14),
@@ -702,8 +696,6 @@ p13fix = ggplot(data=out.comb30000fix, aes(x=time)) +
 p21fix <- ggplot(outhomfix, aes(x=time))+
   geom_line(aes( y=I),colour="#7E1717",size = 0.8) +
   labs(y="Infectious population",x="Time",legend ="")+
-  #ylab("Infectious population")+
-  #xlab("Time")+
   ylim(0,50)+
   theme_bw() +
   theme(axis.title=element_text(size=14),
@@ -719,8 +711,6 @@ p22fix = ggplot(data=out.comb750fix, aes(x=time)) +
   geom_line(aes( y=I, colour = exposure.group),size = 0.8) +
   scale_color_manual(values = c("#068DA9", "#7E1717"))+
   labs(y="",x="Time",legend ="")+
-  #ylab("")+
-  #xlab("Time")+
   ylim(0,50)+
   theme_bw() +
   theme(axis.title=element_text(size=14),
@@ -734,8 +724,6 @@ p23fix = ggplot(data=out.comb30000fix, aes(x=time)) +
   geom_line(aes( y=I, colour = exposure.group),size = 0.8) +
   scale_color_manual(values = c("#068DA9", "#7E1717"))+
   labs(y="",x="Time",legend ="")+
-  #ylab("")+
-  #xlab("Time")+
   ylim(0,50)+
   theme_bw() +
   theme(axis.title=element_text(size=14),
