@@ -309,7 +309,8 @@ p11 <- ggplot(outhom, aes(x=time)) +
   labs(title="none",y="Cumulative",x="",legend ="")+
   ylim(0,100)+
   theme_bw() +
-  theme(axis.title=element_text(size=14),
+  theme(plot.title = element_text(hjust = 0.5),
+        axis.title=element_text(size=14),
         axis.text.y=element_text(size=15),
         axis.text.x=element_text(angle=45,hjust=1,size=15),
         panel.grid = element_blank(), 
@@ -326,7 +327,8 @@ p12 = ggplot(data=out.comb750, aes(x=time)) +
   labs(title="low (750)",y="",x="",legend ="")+
   ylim(0,100)+
   theme_bw() +
-  theme(axis.title=element_text(size=14),
+  theme(plot.title = element_text(hjust = 0.5),
+        axis.title=element_text(size=14),
         axis.text.y=element_text(size=15),
         axis.text.x=element_text(angle=45,hjust=1,size=15),
         panel.grid = element_blank(), 
@@ -341,7 +343,8 @@ p13 = ggplot(data=out.comb30000, aes(x=time)) +
   labs(title="high (30000)",y="",x="",legend ="")+
   ylim(0,100)+
   theme_bw() +
-  theme(axis.title=element_text(size=14),
+  theme(plot.title = element_text(hjust = 0.5),
+        axis.title=element_text(size=14),
         axis.text.y=element_text(size=15),
         axis.text.x=element_text(angle=45,hjust=1,size=15),
         panel.grid = element_blank(), 
@@ -661,92 +664,8 @@ p11fix <- ggplot(outhomfix, aes(x=time)) +
   labs(title="none",y="Cumulative",x="",legend ="")+
   ylim(0,100)+
   theme_bw() +
-  theme(axis.title=element_text(size=14),
-        axis.text.y=element_text(size=15),
-        axis.text.x=element_text(angle=45,hjust=1,size=15),
-        panel.grid = element_blank(), 
-        axis.line=element_line(),
-        legend.position=c(.7,.65),
-        legend.title=element_blank(),
-        legend.text = element_text(size=20))
-
-p12fix = ggplot(data=out.comb750fix, aes(x=time)) +
-  geom_line(aes( y=C, colour = exposure.group),size = 0.8) +
-  geom_line(aes( y=D, colour = exposure.group), linetype="twodash",size = 0.8) +
-  scale_color_manual(values = c("#068DA9", "#7E1717"))+
-  labs(title="low (750)",y="",x="",legend ="")+
-  ylim(0,100)+
-  theme_bw() +
-  theme(axis.title=element_text(size=14),
-        axis.text.y=element_text(size=15),
-        axis.text.x=element_text(angle=45,hjust=1,size=15),
-        panel.grid = element_blank(), 
-        axis.line=element_line(),
-        legend.position="none")
-
-p13fix = ggplot(data=out.comb30000fix, aes(x=time)) +
-  geom_line(aes( y=C, colour = exposure.group),size = 0.8) +
-  geom_line(aes( y=D, colour = exposure.group), linetype="twodash",size = 0.8) +
-  scale_color_manual(values = c("#068DA9", "#7E1717"))+
-  labs(title="high (30000)",y="",x="",legend ="")+
-  ylim(0,100)+
-  theme_bw() +
-  theme(axis.title=element_text(size=14),
-        axis.text.y=element_text(size=15),
-        axis.text.x=element_text(angle=45,hjust=1,size=15),
-        panel.grid = element_blank(), 
-        axis.line=element_line(),
-        legend.position="none")
-
-
-p21fix <- ggplot(outhomfix, aes(x=time))+
-  geom_line(aes( y=I),colour="#7E1717",size = 0.8) +
-  labs(y="Infectious population",x="Time",legend ="")+
-  ylim(0,50)+
-  theme_bw() +
-  theme(axis.title=element_text(size=14),
-        axis.text.y=element_text(size=15),
-        axis.text.x=element_text(angle=45,hjust=1,size=15),
-        panel.grid = element_blank(), 
-        axis.line=element_line(),
-        legend.position=c(.7,.65),
-        legend.title=element_blank(),
-        legend.text = element_text(size=20))
-
-p22fix = ggplot(data=out.comb750fix, aes(x=time)) +
-  geom_line(aes( y=I, colour = exposure.group),size = 0.8) +
-  scale_color_manual(values = c("#068DA9", "#7E1717"))+
-  labs(y="",x="Time",legend ="")+
-  ylim(0,50)+
-  theme_bw() +
-  theme(axis.title=element_text(size=14),
-        axis.text.y=element_text(size=15),
-        axis.text.x=element_text(angle=45,hjust=1,size=15),
-        panel.grid = element_blank(), 
-        axis.line=element_line(),
-        legend.position="none")
-
-p23fix = ggplot(data=out.comb30000fix, aes(x=time)) +
-  geom_line(aes( y=I, colour = exposure.group),size = 0.8) +
-  scale_color_manual(values = c("#068DA9", "#7E1717"))+
-  labs(y="",x="Time",legend ="")+
-  ylim(0,50)+
-  theme_bw() +
-  theme(axis.title=element_text(size=14),
-        axis.text.y=element_text(size=15),
-        axis.text.x=element_text(angle=45,hjust=1,size=15),
-        panel.grid = element_blank(), 
-        axis.line=element_line(),
-        legend.position="none")
-
-
-p11fix <- ggplot(outhomfix, aes(x=time)) + 
-  geom_line(aes(y = C), color = "#7E1717",size = 0.8) +
-  geom_line(aes(y = D), color="#7E1717", linetype="twodash",size = 0.8) +
-  labs(title="none",y="Cumulative",x="",legend ="")+
-  ylim(0,100)+
-  theme_bw() +
-  theme(axis.title=element_text(size=14),
+  theme(plot.title = element_text(hjust = 0.5),
+        axis.title=element_text(size=14),
         axis.text.y=element_text(size=15),
         axis.text.x=element_text(angle=45,hjust=1,size=15),
         panel.grid = element_blank(), 
@@ -763,7 +682,8 @@ p12fix = ggplot(data=out.comb750fix, aes(x=time)) +
   labs(title="low (750)",y="",x="",legend ="")+
   ylim(0,100)+
   theme_bw() +
-  theme(axis.title=element_text(size=14),
+  theme(plot.title = element_text(hjust = 0.5),
+        axis.title=element_text(size=14),
         axis.text.y=element_text(size=15),
         axis.text.x=element_text(angle=45,hjust=1,size=15),
         panel.grid = element_blank(), 
@@ -778,7 +698,8 @@ p13fix = ggplot(data=out.comb30000fix, aes(x=time)) +
   labs(title="high (30000)",y="",x="",legend ="")+
   ylim(0,100)+
   theme_bw() +
-  theme(axis.title=element_text(size=14),
+  theme(plot.title = element_text(hjust = 0.5),
+        axis.title=element_text(size=14),
         axis.text.y=element_text(size=15),
         axis.text.x=element_text(angle=45,hjust=1,size=15),
         panel.grid = element_blank(), 
@@ -822,7 +743,7 @@ p23fix = ggplot(data=out.comb30000fix, aes(x=time)) +
   labs(y="",x="Time",legend ="")+
   ylim(0,40)+
   theme_bw() +
-  theme(axis.title=element_text(size=14),
+  theme(axis.title=element_text(size=14,hjust= 0.5),
         axis.text.y=element_text(size=15),
         axis.text.x=element_text(angle=45,hjust=1,size=15),
         panel.grid = element_blank(), 
