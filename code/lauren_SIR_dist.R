@@ -306,86 +306,92 @@ out.comb$prior.exposure[out.comb$group=="no prior exposure (hom)"]="homogeneous"
 p11 <- ggplot(outhom, aes(x=time)) + 
   geom_line(aes(y = C), color = "#7E1717",size = 0.8) +
   geom_line(aes(y = D), color="#7E1717", linetype="twodash",size = 0.8) +
-  labs(title="No prior exposure",y="Cumulative",x="",legend ="")+
+  labs(title="none",y="Cumulative",x="",legend ="")+
   ylim(0,100)+
   theme_bw() +
   theme(axis.title=element_text(size=14),
         axis.text.y=element_text(size=15),
-        axis.text.x=element_text(angle=45,hjust=1,size=15,face="italic"),
+        axis.text.x=element_text(angle=45,hjust=1,size=15),
         panel.grid = element_blank(), 
         axis.line=element_line(),
         legend.position=c(.7,.65),
         legend.title=element_blank(),
-        legend.text = element_text(size=20,face="italic"))
+        legend.text = element_text(size=20),
+        plot.margin = unit(c(5.5, 0, 0, 5.5), "pt"))
 
 p12 = ggplot(data=out.comb750, aes(x=time)) +
   geom_line(aes( y=C, colour = exposure.group),size = 0.8) +
   geom_line(aes( y=D, colour = exposure.group), linetype="twodash",size = 0.8) +
   scale_color_manual(values = c("#068DA9", "#7E1717"))+
-  labs(title="Low dose (750)",y="",x="",legend ="")+
+  labs(title="low (750)",y="",x="",legend ="")+
   ylim(0,100)+
   theme_bw() +
   theme(axis.title=element_text(size=14),
         axis.text.y=element_text(size=15),
-        axis.text.x=element_text(angle=45,hjust=1,size=15,face="italic"),
+        axis.text.x=element_text(angle=45,hjust=1,size=15),
         panel.grid = element_blank(), 
         axis.line=element_line(),
-        legend.position="none")
+        legend.position="none",
+        plot.margin = unit(c(5.5, 0, 0, 0), "pt"))
 
 p13 = ggplot(data=out.comb30000, aes(x=time)) +
   geom_line(aes( y=C, colour = exposure.group),size = 0.8) +
   geom_line(aes( y=D, colour = exposure.group), linetype="twodash",size = 0.8) +
   scale_color_manual(values = c("#068DA9", "#7E1717"))+
-  labs(title="High dose (30000)",y="",x="",legend ="")+
+  labs(title="high (30000)",y="",x="",legend ="")+
   ylim(0,100)+
   theme_bw() +
   theme(axis.title=element_text(size=14),
         axis.text.y=element_text(size=15),
-        axis.text.x=element_text(angle=45,hjust=1,size=15,face="italic"),
+        axis.text.x=element_text(angle=45,hjust=1,size=15),
         panel.grid = element_blank(), 
         axis.line=element_line(),
-        legend.position="none")
+        legend.position="none",
+        plot.margin = unit(c(5.5, 5.5, 0, 0 ), "pt"))
 
 
 p21 <- ggplot(outhom, aes(x=time))+
   geom_line(aes( y=I),colour="#7E1717",size = 0.8) +
   labs(y="Infectious population",x="Time",legend ="")+
-  ylim(0,50)+
+  ylim(0,40)+
   theme_bw() +
   theme(axis.title=element_text(size=14),
         axis.text.y=element_text(size=15),
-        axis.text.x=element_text(angle=45,hjust=1,size=15,face="italic"),
+        axis.text.x=element_text(angle=45,hjust=1,size=15),
         panel.grid = element_blank(), 
         axis.line=element_line(),
         legend.position=c(.7,.65),
         legend.title=element_blank(),
-        legend.text = element_text(size=20,face="italic"))
+        legend.text = element_text(size=20),
+        plot.margin = unit(c(0, 0, 0, 5.5), "pt"))
 
 p22 = ggplot(data=out.comb750, aes(x=time)) +
   geom_line(aes( y=I, colour = exposure.group),size = 0.8) +
   scale_color_manual(values = c("#068DA9", "#7E1717"))+
   labs(y="",x="Time",legend ="")+
-  ylim(0,50)+
+  ylim(0,40)+
   theme_bw() +
   theme(axis.title=element_text(size=14),
         axis.text.y=element_text(size=15),
-        axis.text.x=element_text(angle=45,hjust=1,size=15,face="italic"),
+        axis.text.x=element_text(angle=45,hjust=1,size=15),
         panel.grid = element_blank(), 
         axis.line=element_line(),
-        legend.position="none")
+        legend.position="none",
+        plot.margin = unit(c(0, 0, 0, 0), "pt"))
 
 p23 = ggplot(data=out.comb30000, aes(x=time)) +
   geom_line(aes( y=I, colour = exposure.group),size = 0.8) +
   scale_color_manual(values = c("#068DA9", "#7E1717"))+
   labs(y="",x="Time",legend ="")+
-  ylim(0,50)+
+  ylim(0,40)+
   theme_bw() +
   theme(axis.title=element_text(size=14),
         axis.text.y=element_text(size=15),
-        axis.text.x=element_text(angle=45,hjust=1,size=15,face="italic"),
+        axis.text.x=element_text(angle=45,hjust=1,size=15),
         panel.grid = element_blank(), 
         axis.line=element_line(),
-        legend.position="none")
+        legend.position="none",
+        plot.margin = unit(c(0, 5.5, 0, 0), "pt"))
 
 
 g1 <- arrangeGrob(p11, p12, p13, p21, p22, p23, nrow=2) #generates g1
@@ -415,7 +421,7 @@ barfitted <- ggplot(data=df_fitted, aes(x=prior_exposure, y=TotI2, fill=Model,wi
   ylim(0,100)+
   theme_bw()+
   theme(strip.background = element_rect(fill="gray97"),
-        strip.text.x = element_text (size = 15,hjust = 0.5, vjust = 0.5,face="italic"),
+        strip.text.x = element_text (size = 15,hjust = 0.5, vjust = 0.5),
         axis.title=element_text(size=20),
         axis.text.y=element_text(size=15),
         plot.title = element_text(size=20),
@@ -652,28 +658,28 @@ out.combfix$prior.exposure[out.combfix$group=="no prior exposure (hom)"]="homoge
 p11fix <- ggplot(outhomfix, aes(x=time)) + 
   geom_line(aes(y = C), color = "#7E1717",size = 0.8) +
   geom_line(aes(y = D), color="#7E1717", linetype="twodash",size = 0.8) +
-  labs(title="No prior exposure",y="Cumulative",x="",legend ="")+
+  labs(title="none",y="Cumulative",x="",legend ="")+
   ylim(0,100)+
   theme_bw() +
   theme(axis.title=element_text(size=14),
         axis.text.y=element_text(size=15),
-        axis.text.x=element_text(angle=45,hjust=1,size=15,face="italic"),
+        axis.text.x=element_text(angle=45,hjust=1,size=15),
         panel.grid = element_blank(), 
         axis.line=element_line(),
         legend.position=c(.7,.65),
         legend.title=element_blank(),
-        legend.text = element_text(size=20,face="italic"))
+        legend.text = element_text(size=20))
 
 p12fix = ggplot(data=out.comb750fix, aes(x=time)) +
   geom_line(aes( y=C, colour = exposure.group),size = 0.8) +
   geom_line(aes( y=D, colour = exposure.group), linetype="twodash",size = 0.8) +
   scale_color_manual(values = c("#068DA9", "#7E1717"))+
-  labs(title="Low dose (750)",y="",x="",legend ="")+
+  labs(title="low (750)",y="",x="",legend ="")+
   ylim(0,100)+
   theme_bw() +
   theme(axis.title=element_text(size=14),
         axis.text.y=element_text(size=15),
-        axis.text.x=element_text(angle=45,hjust=1,size=15,face="italic"),
+        axis.text.x=element_text(angle=45,hjust=1,size=15),
         panel.grid = element_blank(), 
         axis.line=element_line(),
         legend.position="none")
@@ -682,12 +688,12 @@ p13fix = ggplot(data=out.comb30000fix, aes(x=time)) +
   geom_line(aes( y=C, colour = exposure.group),size = 0.8) +
   geom_line(aes( y=D, colour = exposure.group), linetype="twodash",size = 0.8) +
   scale_color_manual(values = c("#068DA9", "#7E1717"))+
-  labs(title="High dose (30000)",y="",x="",legend ="")+
+  labs(title="high (30000)",y="",x="",legend ="")+
   ylim(0,100)+
   theme_bw() +
   theme(axis.title=element_text(size=14),
         axis.text.y=element_text(size=15),
-        axis.text.x=element_text(angle=45,hjust=1,size=15,face="italic"),
+        axis.text.x=element_text(angle=45,hjust=1,size=15),
         panel.grid = element_blank(), 
         axis.line=element_line(),
         legend.position="none")
@@ -700,12 +706,12 @@ p21fix <- ggplot(outhomfix, aes(x=time))+
   theme_bw() +
   theme(axis.title=element_text(size=14),
         axis.text.y=element_text(size=15),
-        axis.text.x=element_text(angle=45,hjust=1,size=15,face="italic"),
+        axis.text.x=element_text(angle=45,hjust=1,size=15),
         panel.grid = element_blank(), 
         axis.line=element_line(),
         legend.position=c(.7,.65),
         legend.title=element_blank(),
-        legend.text = element_text(size=20,face="italic"))
+        legend.text = element_text(size=20))
 
 p22fix = ggplot(data=out.comb750fix, aes(x=time)) +
   geom_line(aes( y=I, colour = exposure.group),size = 0.8) +
@@ -715,7 +721,7 @@ p22fix = ggplot(data=out.comb750fix, aes(x=time)) +
   theme_bw() +
   theme(axis.title=element_text(size=14),
         axis.text.y=element_text(size=15),
-        axis.text.x=element_text(angle=45,hjust=1,size=15,face="italic"),
+        axis.text.x=element_text(angle=45,hjust=1,size=15),
         panel.grid = element_blank(), 
         axis.line=element_line(),
         legend.position="none")
@@ -728,10 +734,104 @@ p23fix = ggplot(data=out.comb30000fix, aes(x=time)) +
   theme_bw() +
   theme(axis.title=element_text(size=14),
         axis.text.y=element_text(size=15),
-        axis.text.x=element_text(angle=45,hjust=1,size=15,face="italic"),
+        axis.text.x=element_text(angle=45,hjust=1,size=15),
         panel.grid = element_blank(), 
         axis.line=element_line(),
         legend.position="none")
+
+
+p11fix <- ggplot(outhomfix, aes(x=time)) + 
+  geom_line(aes(y = C), color = "#7E1717",size = 0.8) +
+  geom_line(aes(y = D), color="#7E1717", linetype="twodash",size = 0.8) +
+  labs(title="none",y="Cumulative",x="",legend ="")+
+  ylim(0,100)+
+  theme_bw() +
+  theme(axis.title=element_text(size=14),
+        axis.text.y=element_text(size=15),
+        axis.text.x=element_text(angle=45,hjust=1,size=15),
+        panel.grid = element_blank(), 
+        axis.line=element_line(),
+        legend.position=c(.7,.65),
+        legend.title=element_blank(),
+        legend.text = element_text(size=20),
+        plot.margin = unit(c(5.5, 0, 0, 5.5), "pt"))
+
+p12fix = ggplot(data=out.comb750fix, aes(x=time)) +
+  geom_line(aes( y=C, colour = exposure.group),size = 0.8) +
+  geom_line(aes( y=D, colour = exposure.group), linetype="twodash",size = 0.8) +
+  scale_color_manual(values = c("#068DA9", "#7E1717"))+
+  labs(title="low (750)",y="",x="",legend ="")+
+  ylim(0,100)+
+  theme_bw() +
+  theme(axis.title=element_text(size=14),
+        axis.text.y=element_text(size=15),
+        axis.text.x=element_text(angle=45,hjust=1,size=15),
+        panel.grid = element_blank(), 
+        axis.line=element_line(),
+        legend.position="none",
+        plot.margin = unit(c(5.5, 0, 0, 0), "pt"))
+
+p13fix = ggplot(data=out.comb30000fix, aes(x=time)) +
+  geom_line(aes( y=C, colour = exposure.group),size = 0.8) +
+  geom_line(aes( y=D, colour = exposure.group), linetype="twodash",size = 0.8) +
+  scale_color_manual(values = c("#068DA9", "#7E1717"))+
+  labs(title="high (30000)",y="",x="",legend ="")+
+  ylim(0,100)+
+  theme_bw() +
+  theme(axis.title=element_text(size=14),
+        axis.text.y=element_text(size=15),
+        axis.text.x=element_text(angle=45,hjust=1,size=15),
+        panel.grid = element_blank(), 
+        axis.line=element_line(),
+        legend.position="none",
+        plot.margin = unit(c(5.5, 5.5, 0, 0 ), "pt"))
+
+
+p21fix <- ggplot(outhomfix, aes(x=time))+
+  geom_line(aes( y=I),colour="#7E1717",size = 0.8) +
+  labs(y="Infectious population",x="Time",legend ="")+
+  ylim(0,40)+
+  theme_bw() +
+  theme(axis.title=element_text(size=14),
+        axis.text.y=element_text(size=15),
+        axis.text.x=element_text(angle=45,hjust=1,size=15),
+        panel.grid = element_blank(), 
+        axis.line=element_line(),
+        legend.position=c(.7,.65),
+        legend.title=element_blank(),
+        legend.text = element_text(size=20),
+        plot.margin = unit(c(0, 0, 0, 5.5), "pt"))
+
+p22fix = ggplot(data=out.comb750fix, aes(x=time)) +
+  geom_line(aes( y=I, colour = exposure.group),size = 0.8) +
+  scale_color_manual(values = c("#068DA9", "#7E1717"))+
+  labs(y="",x="Time",legend ="")+
+  ylim(0,40)+
+  theme_bw() +
+  theme(axis.title=element_text(size=14),
+        axis.text.y=element_text(size=15),
+        axis.text.x=element_text(angle=45,hjust=1,size=15),
+        panel.grid = element_blank(), 
+        axis.line=element_line(),
+        legend.position="none",
+        plot.margin = unit(c(0, 0, 0, 0), "pt"))
+
+p23fix = ggplot(data=out.comb30000fix, aes(x=time)) +
+  geom_line(aes( y=I, colour = exposure.group),size = 0.8) +
+  scale_color_manual(values = c("#068DA9", "#7E1717"))+
+  labs(y="",x="Time",legend ="")+
+  ylim(0,40)+
+  theme_bw() +
+  theme(axis.title=element_text(size=14),
+        axis.text.y=element_text(size=15),
+        axis.text.x=element_text(angle=45,hjust=1,size=15),
+        panel.grid = element_blank(), 
+        axis.line=element_line(),
+        legend.position="none",
+        plot.margin = unit(c(0, 5.5, 0, 0), "pt"))
+
+
+
 
 
 g2 <- arrangeGrob(p11fix, p12fix, p13fix, p21fix, p22fix, p23fix, nrow=2) #generates g2
@@ -766,7 +866,7 @@ bar_fixed <- ggplot(data=dffixed, aes(x=prior_exposure, y=TotI2, fill=Model,widt
   ylim(0,100)+
   theme_bw()+
   theme(strip.background = element_rect(fill="gray97"),
-        strip.text.x = element_text (size = 15,hjust = 0.5, vjust = 0.5,face="italic"),
+        strip.text.x = element_text (size = 15,hjust = 0.5, vjust = 0.5),
         axis.title=element_text(size=20),
         axis.text.y=element_text(size=15),
         plot.title = element_text(size=20),
