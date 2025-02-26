@@ -13,6 +13,7 @@
 #     SIR_density.R - epidemic model trajectories from base fitting
 #     SIR_dist.R - epidemic model differences from bootstrap samples
 # Data:
+#     all_psuedosets.csv - output of CIs_for_fitting_doseresponse.R
 #     day_41_removed_hofi_small_for_fitting_secondary.csv
 #     deviance_params_noday41positives.csv - contains the estimated parameters for the groups
 #     eye_score_primary_dose.csv - contains aggregated eye score from primary dose
